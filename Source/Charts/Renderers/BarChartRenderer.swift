@@ -334,6 +334,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
         trans.rectValuesToPixel(&_buffers[index].rects)
 
         context.saveGState()
+        defer { context.restoreGState() }
         
         // draw the bar shadow before the values
         if dataProvider.isDrawBarShadowEnabled
